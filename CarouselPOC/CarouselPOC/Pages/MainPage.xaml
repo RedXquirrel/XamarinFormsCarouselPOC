@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<smallestMvvm:PageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CarouselPOC.Pages.MainPage"
+             xmlns:views="clr-namespace:Com.Xamtastic.Xamarin.Forms.CarouselView;assembly=Com.Xamtastic.Xamarin.Forms.CarouselView"
+             xmlns:smallestMvvm="clr-namespace:Com.Xamtastic.Patterns.SmallestMvvm;assembly=Com.Xamtastic.Patterns.SmallestMvvm"
+             xmlns:customLayouts="clr-namespace:Com.Xamtastic.Xamarin.Forms.CarouselView.CustomLayouts;assembly=Com.Xamtastic.Xamarin.Forms.CarouselView"
+             xmlns:converters="clr-namespace:CarouselPOC.Converters;assembly=CarouselPOC"                     
+  >
+  <smallestMvvm:PageBase.Resources>
+    <ResourceDictionary>
+      <converters:CarouselViewModelsDataSourceConverter x:Key="CarouselViewModelsDataSourceConverter" />
+    </ResourceDictionary>
+  </smallestMvvm:PageBase.Resources>
+  <customLayouts:CarouselView BackgroundColor="Blue"
+    x:Name="CarouselView"
+    ItemViewModels="{Binding Converter={StaticResource CarouselViewModelsDataSourceConverter}}"
+    PagingIndicatorsDiscSize="15"
+    PagingIndicatorsUnselectedColor="Transparent"
+    PagingIndicatorsSelectedColor="White"
+  />
+</smallestMvvm:PageBase>
