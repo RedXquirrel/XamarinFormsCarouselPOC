@@ -36,7 +36,7 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_SecondView()
         {
 
-            app.SwipeLeft();
+            app.SwipeRight();
             app.Screenshot("View 2");
         }
 
@@ -44,8 +44,8 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_ThirdView()
         {
 
-            app.SwipeLeft();
-            app.SwipeLeft();
+            app.SwipeRight();
+            app.SwipeRight();
             app.Screenshot("View 3");
         }
 
@@ -53,9 +53,9 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_FourthView()
         {
 
-            app.SwipeLeft();
-            app.SwipeLeft();
-            app.SwipeLeft();
+            app.SwipeRight();
+            app.SwipeRight();
+            app.SwipeRight();
             app.Screenshot("View 4");
         }
 
