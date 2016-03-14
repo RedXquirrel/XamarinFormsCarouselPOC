@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using NUnit.Framework;
@@ -57,6 +58,20 @@ namespace CarouselPOC.UITest
             app.SwipeLeft();
             app.Screenshot("View 4");
         }
+
+        [Test]
+        public void AppLaunches_Type_Text()
+        {
+            app.Tap(x => x.Class("EntryEditText"));
+            app.EnterText(x => x.Class("EntryEditText"), "Anthony Harrison");
+            var a = app.Query(e => e.All().Property("Text", "Anthony Harrison")).ToList();
+            foreach (var appResult in a)
+            {
+                Assert.IsTrue(appResult.Text.Equals("Anthony Harrison"));
+            }
+            app.Screenshot("View 4");
+        }
+
 
 
     }
