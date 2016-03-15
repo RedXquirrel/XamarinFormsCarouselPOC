@@ -36,7 +36,7 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_SecondView()
         {
 
-            app.SwipeRight();
+            app.SwipeLeft();
             app.Screenshot("View 2");
         }
 
@@ -44,8 +44,8 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_ThirdView()
         {
 
-            app.SwipeRight();
-            app.SwipeRight();
+            app.SwipeLeft();
+            app.SwipeLeft();
             app.Screenshot("View 3");
         }
 
@@ -53,9 +53,9 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_FourthView()
         {
 
-            app.SwipeRight();
-            app.SwipeRight();
-            app.SwipeRight();
+            app.SwipeLeft();
+            app.SwipeLeft();
+            app.SwipeLeft();
             app.Screenshot("View 4");
         }
 
@@ -69,6 +69,7 @@ namespace CarouselPOC.UITest
             {
                 Assert.IsTrue(appResult.Text.Equals("Anthony Harrison"));
             }
+
             app.Screenshot("View 4");
         }
 

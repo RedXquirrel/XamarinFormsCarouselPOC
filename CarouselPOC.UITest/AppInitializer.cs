@@ -15,19 +15,17 @@ namespace CarouselPOC.UITest
                 return ConfigureApp
                     .Android
                     .EnableLocalScreenshots()
-                    .ApiKey("a7671b43b03e0bd2a1ccb7b80aec2fae")
                     .StartApp();
             }
 
-            return ConfigureApp
-                .Android
-                .EnableLocalScreenshots()
-                .ApiKey("a7671b43b03e0bd2a1ccb7b80aec2fae")
-                .StartApp();
-
             //return ConfigureApp
-            //    .iOS
+            //    .Android
+            //    .EnableLocalScreenshots()
             //    .StartApp();
+
+            return ConfigureApp
+                .iOS
+                .StartApp();
         }
     }
 }

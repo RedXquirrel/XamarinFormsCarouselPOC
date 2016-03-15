@@ -13,6 +13,11 @@ namespace CarouselPOC.Pages
         public ViewFourView()
         {
             InitializeComponent();
+
+            InputEntry.TextChanged += (s, e) =>
+            {
+                InputLabel.Text = InputEntry.Text;
+            };
         }
     }
 }
