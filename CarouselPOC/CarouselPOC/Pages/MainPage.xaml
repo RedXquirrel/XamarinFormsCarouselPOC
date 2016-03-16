@@ -12,7 +12,7 @@
       <converters:CarouselViewModelsDataSourceConverter x:Key="CarouselViewModelsDataSourceConverter" />
     </ResourceDictionary>
   </smallestMvvm:PageBase.Resources>
-  <customLayouts:CarouselView BackgroundColor="Blue"
+  <customLayouts:CarouselControl BackgroundColor="Blue"
     x:Name="CarouselView"
     ItemViewModels="{Binding Converter={StaticResource CarouselViewModelsDataSourceConverter}}"
     PagingIndicatorsDiscSize="15"

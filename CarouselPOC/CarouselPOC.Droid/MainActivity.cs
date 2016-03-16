@@ -18,7 +18,7 @@ namespace CarouselPOC.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            CarouselView.Init(typeof(App));
+            CarouselControl.Init(typeof(App));
             LoadApplication(new App());
         }
     }

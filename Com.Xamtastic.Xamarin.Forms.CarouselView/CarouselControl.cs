@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Com.Xamtastic.Xamarin.Forms.CarouselView
 {
-        public class CarouselView : ContentView
+        public class CarouselControl : ContentView
         {
             public static void Init(Type typeInViewsAssembly)
             {
@@ -26,7 +26,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
             /// It is this declaration that makes the property visible in Xaml.
             /// </summary>
             public static BindableProperty ItemViewModelsProperty =
-             BindableProperty.Create<CarouselView, IEnumerable<object>>(
+             BindableProperty.Create<CarouselControl, IEnumerable<object>>(
                 x => x.ItemViewModels,
                    null
                  );
@@ -44,7 +44,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
             }
 
             public static BindableProperty PagingIndicatorsSelectedColorProperty =
-                 BindableProperty.Create<CarouselView, Color>(
+                 BindableProperty.Create<CarouselControl, Color>(
                     x => x.PagingIndicatorsSelectedColor,
                        Color.Blue
                      );
@@ -59,7 +59,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
             }
 
             public static BindableProperty PagingIndicatorsUnselectedColorProperty =
-                 BindableProperty.Create<CarouselView, Color>(
+                 BindableProperty.Create<CarouselControl, Color>(
                     x => x.PagingIndicatorsUnselectedColor,
                        Color.Yellow
                      );
@@ -74,7 +74,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
             }
 
             public static BindableProperty PagingIndicatorsDiscSizeProperty =
-                 BindableProperty.Create<CarouselView, double>(
+                 BindableProperty.Create<CarouselControl, double>(
                     x => x.PagingIndicatorsDiscSize,
                        10
                      );
@@ -90,7 +90,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
 
             CarouselViewViewModel viewModel;
 
-            public CarouselView()
+            public CarouselControl()
             {
                 viewModel = new CarouselViewViewModel();
                 BindingContext = viewModel;
@@ -98,27 +98,27 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
                 this.PropertyChanged += (
                 (s, e) =>
                 {
-                    if (e.PropertyName == CarouselView.ItemViewModelsProperty.PropertyName)
+                    if (e.PropertyName == CarouselControl.ItemViewModelsProperty.PropertyName)
                     {
-                        Debug.WriteLine($"Property Name: {CarouselView.ItemViewModelsProperty.PropertyName}");
+                        Debug.WriteLine($"Property Name: {CarouselControl.ItemViewModelsProperty.PropertyName}");
                         viewModel.Views = ItemViewModels;
                     }
 
-                    if (e.PropertyName == CarouselView.PagingIndicatorsDiscSizeProperty.PropertyName)
+                    if (e.PropertyName == CarouselControl.PagingIndicatorsDiscSizeProperty.PropertyName)
                     {
-                        Debug.WriteLine($"Property Name: {CarouselView.PagingIndicatorsDiscSizeProperty.PropertyName}");
+                        Debug.WriteLine($"Property Name: {CarouselControl.PagingIndicatorsDiscSizeProperty.PropertyName}");
                         viewModel.PagingIndicatorsDiscSize = PagingIndicatorsDiscSize;
                     }
 
-                    if (e.PropertyName == CarouselView.PagingIndicatorsSelectedColorProperty.PropertyName)
+                    if (e.PropertyName == CarouselControl.PagingIndicatorsSelectedColorProperty.PropertyName)
                     {
-                        Debug.WriteLine($"Property Name: {CarouselView.PagingIndicatorsSelectedColorProperty.PropertyName}");
+                        Debug.WriteLine($"Property Name: {CarouselControl.PagingIndicatorsSelectedColorProperty.PropertyName}");
                         viewModel.PagingIndicatorSelectedColor = PagingIndicatorsSelectedColor;
                     }
 
-                    if (e.PropertyName == CarouselView.PagingIndicatorsUnselectedColorProperty.PropertyName)
+                    if (e.PropertyName == CarouselControl.PagingIndicatorsUnselectedColorProperty.PropertyName)
                     {
-                        Debug.WriteLine($"Property Name: {CarouselView.PagingIndicatorsUnselectedColorProperty.PropertyName}");
+                        Debug.WriteLine($"Property Name: {CarouselControl.PagingIndicatorsUnselectedColorProperty.PropertyName}");
                         viewModel.PagingIndicatorUnselectedColor = PagingIndicatorsUnselectedColor;
                     }
                 });

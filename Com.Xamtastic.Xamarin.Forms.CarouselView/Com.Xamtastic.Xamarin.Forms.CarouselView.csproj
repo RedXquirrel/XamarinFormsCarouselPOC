@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CarouselView.cs" />
+    <Compile Include="CarouselControl.cs" />
     <Compile Include="HomeView.cs" />
     <Compile Include="Managers\ViewLayoutManager.cs" />
     <Compile Include="PageIndicatorTabs.cs" />
