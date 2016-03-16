@@ -178,13 +178,13 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
 
             View CreatePagingIndicators()
             {
-                var pagerIndicator = new PagerIndicatorView();
+                var pagerIndicator = new PagingIndicatorView();
 
-                pagerIndicator.SetBinding(PagerIndicatorView.ItemsSourceProperty, "Views");
-                pagerIndicator.SetBinding(PagerIndicatorView.SelectedItemProperty, "CurrentView");
-                pagerIndicator.SetBinding(PagerIndicatorView.PagingIndicatorsDiscSizeProperty, "PagingIndicatorsDiscSize");
-                pagerIndicator.SetBinding(PagerIndicatorView.PagingIndicatorsSelectedColorProperty, "PagingIndicatorSelectedColor");
-                pagerIndicator.SetBinding(PagerIndicatorView.PagingIndicatorsUnselectedColorProperty, "PagingIndicatorUnselectedColor");
+                pagerIndicator.SetBinding(PagingIndicatorView.ItemsSourceProperty, "Views");
+                pagerIndicator.SetBinding(PagingIndicatorView.SelectedItemProperty, "CurrentView");
+                pagerIndicator.SetBinding(PagingIndicatorView.PagingIndicatorsDiscSizeProperty, "PagingIndicatorsDiscSize");
+                pagerIndicator.SetBinding(PagingIndicatorView.PagingIndicatorsSelectedColorProperty, "PagingIndicatorSelectedColor");
+                pagerIndicator.SetBinding(PagingIndicatorView.PagingIndicatorsUnselectedColorProperty, "PagingIndicatorUnselectedColor");
                 return pagerIndicator;
             }
         }

@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
 {
-    public class PagerIndicatorView : StackLayout
+    public class PagingIndicatorView : StackLayout
     {
         int dotCount = 1;
         int _selectedIndex;
@@ -14,7 +14,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         public Color DotUnselectedColor { get; set; }
         public double DotSize { get; set; }
 
-        public PagerIndicatorView()
+        public PagingIndicatorView()
         {
             HorizontalOptions = LayoutOptions.CenterAndExpand;
             VerticalOptions = LayoutOptions.Center;
@@ -37,15 +37,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         }
 
         public static BindableProperty ItemsSourceProperty =
-            BindableProperty.Create<PagerIndicatorView, IList>(
+            BindableProperty.Create<PagingIndicatorView, IList>(
                 pi => pi.ItemsSource,
                 null,
                 BindingMode.OneWay,
                 propertyChanging: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).ItemsSourceChanging();
+                    ((PagingIndicatorView)bindable).ItemsSourceChanging();
                 },
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).ItemsSourceChanged();
+                    ((PagingIndicatorView)bindable).ItemsSourceChanged();
                 }
         );
 
@@ -62,15 +62,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         }
 
         public static BindableProperty SelectedItemProperty =
-            BindableProperty.Create<PagerIndicatorView, object>(
+            BindableProperty.Create<PagingIndicatorView, object>(
                 pi => pi.SelectedItem,
                 null,
                 BindingMode.TwoWay,
                 propertyChanging: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).SelectedItemChangedChanging();
+                    ((PagingIndicatorView)bindable).SelectedItemChangedChanging();
                 },
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).SelectedItemChanged();
+                    ((PagingIndicatorView)bindable).SelectedItemChanged();
                 });
 
         private void SelectedItemChangedChanging()
@@ -115,15 +115,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         // *******
 
         public static BindableProperty PagingIndicatorsSelectedColorProperty =
-             BindableProperty.Create<PagerIndicatorView, Color>(
+             BindableProperty.Create<PagingIndicatorView, Color>(
                 x => x.PagingIndicatorsSelectedColor,
                    Color.Blue,
                 BindingMode.OneWay,
                 propertyChanging: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsSelectedColorChanging();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsSelectedColorChanging();
                 },
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsSelectedColorChanged();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsSelectedColorChanged();
                 }
                  );
 
@@ -147,15 +147,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         }
 
         public static BindableProperty PagingIndicatorsUnselectedColorProperty =
-             BindableProperty.Create<PagerIndicatorView, Color>(
+             BindableProperty.Create<PagingIndicatorView, Color>(
                 x => x.PagingIndicatorsUnselectedColor,
                    Color.Yellow,
                 BindingMode.OneWay,
                 propertyChanging: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsUnselectedColorChanging();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsUnselectedColorChanging();
                 },
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsUnselectedColorChanged();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsUnselectedColorChanged();
                 }
                  );
 
@@ -179,15 +179,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Views
         }
 
         public static BindableProperty PagingIndicatorsDiscSizeProperty =
-             BindableProperty.Create<PagerIndicatorView, double>(
+             BindableProperty.Create<PagingIndicatorView, double>(
                 x => x.PagingIndicatorsDiscSize,
                    10,
                 BindingMode.OneWay,
                 propertyChanging: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsDiscSizeChanging();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsDiscSizeChanging();
                 },
                 propertyChanged: (bindable, oldValue, newValue) => {
-                    ((PagerIndicatorView)bindable).PagingIndicatorsDiscSizeChanged();
+                    ((PagingIndicatorView)bindable).PagingIndicatorsDiscSizeChanged();
                 }
                  );
 

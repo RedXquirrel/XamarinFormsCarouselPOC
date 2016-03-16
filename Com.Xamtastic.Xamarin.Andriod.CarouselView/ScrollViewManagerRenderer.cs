@@ -10,11 +10,11 @@ using Android.Graphics;
 using Com.Xamtastic.Xamarin.Andriod.CarouselView;
 using Com.Xamtastic.Xamarin.Forms.CarouselView.Managers;
 
-[assembly: ExportRenderer(typeof(ScrollViewManager), typeof(CarouselScrollViewRenderer))]
+[assembly: ExportRenderer(typeof(ScrollViewManager), typeof(ScrollViewManagerRenderer))]
 
 namespace Com.Xamtastic.Xamarin.Andriod.CarouselView
 {
-    public class CarouselScrollViewRenderer : ScrollViewRenderer
+    public class ScrollViewManagerRenderer : ScrollViewRenderer
     {
         int _prevScrollX;
         int _deltaX;
