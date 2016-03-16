@@ -17,7 +17,16 @@ namespace CarouselPOC.Pages
             InputEntry.TextChanged += (s, e) =>
             {
                 InputLabel.Text = InputEntry.Text;
+                ClearButton.IsEnabled = InputEntry.Text.Length != 0;
             };
+
+            ClearButton.Clicked += (s, e) =>
+            {
+                InputEntry.Text = string.Empty;
+                InputLabel.Text = "Cleared!";
+            };
+
+            ClearButton.IsEnabled = false;
         }
     }
 }

@@ -73,7 +73,19 @@ namespace CarouselPOC.UITest
             app.Screenshot("View 4");
         }
 
-
+        [Test]
+        public void AppLaunches_Type_Text_Clear_Text()
+        {
+            app.Tap(x => x.Class("EntryEditText"));
+            app.EnterText(x => x.Class("EntryEditText"), "Anthony Harrison");
+            var a = app.Query(e => e.All().Property("Text", "Anthony Harrison")).ToList();
+            foreach (var appResult in a)
+            {
+                Assert.IsTrue(appResult.Text.Equals("Anthony Harrison"));
+            }
+            app.ClearText(x => x.Text("Anthony Harrison"));
+            app.Screenshot("View 5");
+        }
 
     }
 }
