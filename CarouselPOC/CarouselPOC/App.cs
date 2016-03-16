@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CarouselPOC.Pages;
-using Com.Xamtastic.Xamarin.Forms.CarouselView.CustomLayouts;
 using Xamarin.Forms;
 
 namespace CarouselPOC

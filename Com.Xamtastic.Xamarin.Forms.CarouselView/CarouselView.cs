@@ -9,8 +9,6 @@ using Xamarin.Forms;
 
 namespace Com.Xamtastic.Xamarin.Forms.CarouselView
 {
-    namespace CustomLayouts
-    {
         public class CarouselView : ContentView
         {
             public static void Init(Type typeInViewsAssembly)
@@ -195,5 +193,4 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
                 return pagerIndicator;
             }
         }
-    }
 }

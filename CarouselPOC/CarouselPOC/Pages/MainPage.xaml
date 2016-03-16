@@ -4,7 +4,7 @@
              x:Class="CarouselPOC.Pages.MainPage"
              xmlns:views="clr-namespace:Com.Xamtastic.Xamarin.Forms.CarouselView;assembly=Com.Xamtastic.Xamarin.Forms.CarouselView"
              xmlns:smallestMvvm="clr-namespace:Com.Xamtastic.Patterns.SmallestMvvm;assembly=Com.Xamtastic.Patterns.SmallestMvvm"
-             xmlns:customLayouts="clr-namespace:Com.Xamtastic.Xamarin.Forms.CarouselView.CustomLayouts;assembly=Com.Xamtastic.Xamarin.Forms.CarouselView"
+             xmlns:customLayouts="clr-namespace:Com.Xamtastic.Xamarin.Forms.CarouselView;assembly=Com.Xamtastic.Xamarin.Forms.CarouselView"
              xmlns:converters="clr-namespace:CarouselPOC.Converters;assembly=CarouselPOC"                     
   >
   <smallestMvvm:PageBase.Resources>
