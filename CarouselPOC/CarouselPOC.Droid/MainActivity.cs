@@ -18,7 +18,7 @@ namespace CarouselPOC.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            CarouselControl.Init(typeof(App));
+            CarouselControl.Init(typeof(App)); // The typeof(...) statement must merely reference a class in the assembly containing the views that the carousel will render.
             LoadApplication(new App());
         }
     }
