@@ -13,7 +13,7 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
         {
             public static void Init(Type typeInViewsAssembly)
             {
-                ViewLayoutManager.ViewAssemblyType = typeInViewsAssembly;
+                ScrollViewManager.ViewAssemblyType = typeInViewsAssembly;
             }
             /// <summary>
             /// The view container.
@@ -88,11 +88,11 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
                 }
             }
 
-            CarouselViewViewModel viewModel;
+            CarouselControlViewModel viewModel;
 
             public CarouselControl()
             {
-                viewModel = new CarouselViewViewModel();
+                viewModel = new CarouselControlViewModel();
                 BindingContext = viewModel;
 
                 this.PropertyChanged += (
@@ -155,16 +155,15 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
                 Content = _relativeLayout;
             }
 
-            ViewLayoutManager CreateViewsCarousel()
+            ScrollViewManager CreateViewsCarousel()
             {
-                var carousel = new ViewLayoutManager
+                var carousel = new ScrollViewManager
                 {
                     HorizontalOptions = LayoutOptions.FillAndExpand,
                     VerticalOptions = LayoutOptions.FillAndExpand,
-                    //ItemTemplate = new DataTemplate(typeof(HomeView))
                 };
-                carousel.SetBinding(ViewLayoutManager.ItemsSourceProperty, "Views");
-                carousel.SetBinding(ViewLayoutManager.SelectedItemProperty, "CurrentView", BindingMode.TwoWay);
+                carousel.SetBinding(ScrollViewManager.ItemsSourceProperty, "Views");
+                carousel.SetBinding(ScrollViewManager.SelectedItemProperty, "CurrentView", BindingMode.TwoWay);
 
                 return carousel;
             }
@@ -179,12 +178,8 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView
 
             View CreatePagingIndicators()
             {
-                var pagerIndicator = new PagerIndicatorView()
-                {
-                    //DotSize = PagingIndicatorsDiscSize,
-                    //DotSelectedColor = PagingIndicatorsSelectedColor,
-                    //DotUnselectedColor = PagingIndicatorsUnselectedColor
-                };
+                var pagerIndicator = new PagerIndicatorView();
+
                 pagerIndicator.SetBinding(PagerIndicatorView.ItemsSourceProperty, "Views");
                 pagerIndicator.SetBinding(PagerIndicatorView.SelectedItemProperty, "CurrentView");
                 pagerIndicator.SetBinding(PagerIndicatorView.PagingIndicatorsDiscSizeProperty, "PagingIndicatorsDiscSize");

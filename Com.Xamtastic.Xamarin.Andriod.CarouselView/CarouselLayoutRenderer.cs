@@ -10,11 +10,11 @@ using Android.Graphics;
 using Com.Xamtastic.Xamarin.Andriod.CarouselView;
 using Com.Xamtastic.Xamarin.Forms.CarouselView.Managers;
 
-[assembly: ExportRenderer(typeof(ViewLayoutManager), typeof(CarouselLayoutRenderer))]
+[assembly: ExportRenderer(typeof(ScrollViewManager), typeof(CarouselScrollViewRenderer))]
 
 namespace Com.Xamtastic.Xamarin.Andriod.CarouselView
 {
-    public class CarouselLayoutRenderer : ScrollViewRenderer
+    public class CarouselScrollViewRenderer : ScrollViewRenderer
     {
         int _prevScrollX;
         int _deltaX;
@@ -48,9 +48,9 @@ namespace Com.Xamtastic.Xamarin.Andriod.CarouselView
                 _scrollView.HorizontalScrollBarEnabled = false;
                 _scrollView.Touch += HScrollViewTouch;
             }
-            if (e.PropertyName == ViewLayoutManager.SelectedIndexProperty.PropertyName && !_motionDown)
+            if (e.PropertyName == ScrollViewManager.SelectedIndexProperty.PropertyName && !_motionDown)
             {
-                ScrollToIndex(((ViewLayoutManager)this.Element).SelectedIndex);
+                ScrollToIndex(((ScrollViewManager)this.Element).SelectedIndex);
             }
         }
 
@@ -84,7 +84,7 @@ namespace Com.Xamtastic.Xamarin.Andriod.CarouselView
         void UpdateSelectedIndex()
         {
             var center = _scrollView.ScrollX + (_scrollView.Width / 2);
-            var carouselLayout = (ViewLayoutManager)this.Element;
+            var carouselLayout = (ScrollViewManager)this.Element;
             carouselLayout.SelectedIndex = (center / _scrollView.Width);
         }
 
@@ -114,7 +114,7 @@ namespace Com.Xamtastic.Xamarin.Andriod.CarouselView
             base.Draw(canvas);
             if (_initialized) return;
             _initialized = true;
-            var carouselLayout = (ViewLayoutManager)this.Element;
+            var carouselLayout = (ScrollViewManager)this.Element;
             _scrollView.ScrollTo(carouselLayout.SelectedIndex * Width, 0);
         }
 

@@ -7,14 +7,14 @@ using Xamarin.Forms;
 
 namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
 {
-    public class ViewLayoutManager : ScrollView
+    public class ScrollViewManager : ScrollView
     {
         readonly StackLayout _stack;
 
         int _selectedIndex;
         bool _timerflag = true;
 
-        public ViewLayoutManager()
+        public ScrollViewManager()
         {
             Orientation = ScrollOrientation.Horizontal;
 
@@ -47,13 +47,13 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
         }
 
         public static readonly BindableProperty SelectedIndexProperty =
-            BindableProperty.Create<ViewLayoutManager, int>(
+            BindableProperty.Create<ScrollViewManager, int>(
                 carousel => carousel.SelectedIndex,
                 0,
                 BindingMode.TwoWay,
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
-                    ((ViewLayoutManager)bindable).UpdateSelectedItem();
+                    ((ScrollViewManager)bindable).UpdateSelectedItem();
                 }
             );
 
@@ -85,16 +85,16 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
         }
 
         public static readonly BindableProperty ItemsSourceProperty =
-            BindableProperty.Create<ViewLayoutManager, IList>(
+            BindableProperty.Create<ScrollViewManager, IList>(
                 view => view.ItemsSource,
                 null,
                 propertyChanging: (bindableObject, oldValue, newValue) =>
                 {
-                    ((ViewLayoutManager)bindableObject).ItemsSourceChanging();
+                    ((ScrollViewManager)bindableObject).ItemsSourceChanging();
                 },
                 propertyChanged: (bindableObject, oldValue, newValue) =>
                 {
-                    ((ViewLayoutManager)bindableObject).ItemsSourceChanged();
+                    ((ScrollViewManager)bindableObject).ItemsSourceChanged();
                 }
             );
 
@@ -121,8 +121,6 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
             _stack.Children.Clear();
             foreach (var item in ItemsSource)
             {
-                //var view = (View)ItemTemplate.CreateContent();
-
                 var view = CreateView(item.GetType());
 
                 var bindableObject = view as BindableObject;
@@ -138,9 +136,6 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
         {
             var viewModelName = viewModelType.Name;
             var viewName = viewModelName.Replace("ViewModel", "View");
-
-            //var viewType = ViewAssemblyType.GetTypeInfo().Assembly.CreatableTypes()
-            //                              .FirstOrDefault(t => t.Name == viewName);
 
             var viewType =
                 ViewAssemblyType.GetTypeInfo().Assembly.ExportedTypes.FirstOrDefault(t => t.Name == viewName);
@@ -165,13 +160,13 @@ namespace Com.Xamtastic.Xamarin.Forms.CarouselView.Managers
         }
 
         public static readonly BindableProperty SelectedItemProperty =
-            BindableProperty.Create<ViewLayoutManager, object>(
+            BindableProperty.Create<ScrollViewManager, object>(
                 view => view.SelectedItem,
                 null,
                 BindingMode.TwoWay,
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
-                    ((ViewLayoutManager)bindable).UpdateSelectedIndex();
+                    ((ScrollViewManager)bindable).UpdateSelectedIndex();
                 }
             );
 

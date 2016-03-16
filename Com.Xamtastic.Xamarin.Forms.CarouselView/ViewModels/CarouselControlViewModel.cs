@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Com.Xamtastic.Xamarin.Forms.CarouselView.ViewModels
 {
-    public class CarouselViewViewModel : ViewModelBase
+    public class CarouselControlViewModel : ViewModelBase
     {
-        public CarouselViewViewModel()
+        public CarouselControlViewModel()
         {
         }
 
