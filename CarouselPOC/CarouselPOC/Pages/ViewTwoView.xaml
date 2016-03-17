@@ -12,7 +12,7 @@
       <ColumnDefinition Width="*" />
       <ColumnDefinition Width="20" />
     </Grid.ColumnDefinitions>
-    <Label x:Name="TitleLabel" Grid.Row="0" Grid.Column="1" Text="Two" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label x:Name="TitleLabel" StyleId="TitleLabel" Grid.Row="0" Grid.Column="1" Text="Two" VerticalOptions="Center" HorizontalOptions="Center" />
     <StackLayout Grid.Row="1" Grid.Column="1">
       <Entry x:Name="InputEntry" HorizontalOptions="Fill" BackgroundColor="White" TextColor="Blue" />
       <Label x:Name="InputLabel" Text="Enter a value" HorizontalOptions="Fill" />

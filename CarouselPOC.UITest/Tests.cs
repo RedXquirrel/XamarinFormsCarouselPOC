@@ -36,7 +36,7 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_SecondView()
         {
 
-            app.SwipeLeft();
+            app.SwipeRightToLeft();
             app.Screenshot("View 2");
         }
 
@@ -44,8 +44,8 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_ThirdView()
         {
 
-            app.SwipeLeft();
-            app.SwipeLeft();
+            app.SwipeRightToLeft();
+            app.SwipeRightToLeft();
             app.Screenshot("View 3");
         }
 
@@ -53,9 +53,9 @@ namespace CarouselPOC.UITest
         public void AppLaunches_SwipeLeft_To_FourthView()
         {
 
-            app.SwipeLeft();
-            app.SwipeLeft();
-            app.SwipeLeft();
+            app.SwipeRightToLeft();
+            app.SwipeRightToLeft();
+            app.SwipeRightToLeft();
             app.Screenshot("View 4");
         }
 
@@ -85,6 +85,74 @@ namespace CarouselPOC.UITest
             }
             app.ClearText(x => x.Text("Anthony Harrison"));
             app.Screenshot("View 5");
+        }
+
+        [Test]
+        public void AppLaunches_By_Marked()
+        {
+            app.Tap(x => x.Marked("InputEntry"));
+            app.Screenshot("Tapped on view EntryEditText");
+            app.EnterText(x => x.Marked("InputEntry"), "Captain Xamtastic!");
+            app.Screenshot("Entered 'Captain Xamtastic!' into view EntryEditText");
+            app.PressEnter();
+            app.WaitForElement(c => c.Marked("InputLabel").Text("Captain Xamtastic!"));
+            app.Tap(x => x.Marked("ClearButton"));
+
+            app.Tap(x => x.Marked("InputEntry"));
+            app.EnterText(x => x.Marked("InputEntry"), "Anthony Harrison");
+
+            var inputEntry = app.Query(x => x.Marked("InputEntry")).ToList().FirstOrDefault();
+
+            if (inputEntry != null)
+            {
+                Assert.IsTrue(inputEntry.Text.Equals("Anthony Harrison"), "Text dos not equal Anthony Harrison");
+            }
+            else
+            {
+                Assert.IsTrue(false, "InputEntry is null.");
+            }
+
+            app.Tap(x => x.Marked("ClearButton"));
+
+            var inputEntry1 = app.Query(x => x.Marked("InputEntry")).ToList().FirstOrDefault();
+
+            if (inputEntry1 != null)
+            {
+                Assert.IsTrue(inputEntry1.Text.Equals(string.Empty), "Text dos not equal ''");
+            }
+            else
+            {
+                Assert.IsTrue(false, "InputEntry1 is null.");
+            }
+
+            app.SwipeRightToLeft(swipeSpeed: 5000);
+
+            var titleLabel = app.Query(x => x.Marked("TitleLabel")).ToList().FirstOrDefault();
+
+            if (titleLabel != null)
+            {
+                Assert.IsTrue(titleLabel.Text.Equals("Two"),
+                    $"TitleLabel.Text expected as 'Two' but is {titleLabel.Text}");
+            }
+            else
+            {
+                Assert.IsTrue(false, "TitleLabel is null.");
+            }
+
+            app.SwipeRightToLeft(swipeSpeed: 5000);
+
+            var titleLabel1 = app.Query(x => x.Marked("TitleLabel")).ToList().FirstOrDefault();
+
+            if (titleLabel1 != null)
+            {
+                Assert.IsTrue(titleLabel1.Text.Equals("Three"),
+                    $"TitleLabel1.Text expected as 'Three' but is {titleLabel1.Text}");
+            }
+            else
+            {
+                Assert.IsTrue(false, "TitleLabel1 is null.");
+            }
+
         }
 
     }
